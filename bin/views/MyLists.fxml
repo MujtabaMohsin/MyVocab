@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<BorderPane fx:id="main_pane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="634.0" prefWidth="1100.0" xmlns="http://javafx.com/javafx/15.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="views.MyListsController">
+   <top>
+      <AnchorPane prefHeight="71.0" prefWidth="1100.0" style="-fx-background-color: #000080;" BorderPane.alignment="CENTER">
+         <children>
+            <HBox alignment="CENTER_LEFT" prefHeight="71.0" prefWidth="1100.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+               <children>
+                  <ImageView fx:id="logo" fitHeight="79.0" fitWidth="168.0" onMouseClicked="#goHome" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../images/sd.png" />
+                     </image>
+                     <HBox.margin>
+                        <Insets right="8.0" />
+                     </HBox.margin>
+                  </ImageView>
+                  <TextField fx:id="search_txt" onKeyPressed="#searchByKeyboard" prefHeight="48.0" prefWidth="790.0" HBox.hgrow="ALWAYS">
+                     <font>
+                        <Font size="18.0" />
+                     </font></TextField>
+                  <Button fx:id="search_btn" mnemonicParsing="false" onAction="#wordSearch" prefHeight="47.0" prefWidth="114.0" text="Search" HBox.hgrow="ALWAYS">
+                     <font>
+                        <Font size="20.0" />
+                     </font>
+                  </Button>
+               </children>
+               <padding>
+                  <Insets left="10.0" right="10.0" />
+               </padding>
+            </HBox>
+         </children>
+      </AnchorPane>
+   </top>
+   <center>
+      <AnchorPane prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: #FF851B;" BorderPane.alignment="CENTER">
+         <children>
+            <VBox prefHeight="515.2" prefWidth="1100.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+               <children>
+                  <HBox alignment="CENTER_LEFT" prefHeight="43.0" prefWidth="1100.0" style="-fx-background-color: #FF851B;">
+                     <children>
+                        <Button fx:id="back_btn" mnemonicParsing="false" onAction="#back_home" prefHeight="38.0" prefWidth="58.0" style="-fx-background-color: #FF851B;" textFill="WHITE">
+                           <font>
+                              <Font name="System Bold" size="15.0" />
+                           </font>
+                           <graphic>
+                              <ImageView fitHeight="31.0" fitWidth="28.0" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@../images/img_529.png" />
+                                 </image>
+                              </ImageView>
+                           </graphic>
+                        </Button>
+                        <TextField fx:id="mylist_title" editable="false" prefHeight="42.0" prefWidth="309.0" style="-fx-background-color: transparent; fx-background-insets: 0;" text="My Lists" HBox.hgrow="ALWAYS">
+                           <font>
+                              <Font name="Segoe UI Bold" size="18.0" />
+                           </font>
+                        </TextField>
+                        <TextField alignment="TOP_RIGHT" editable="false" layoutX="68.0" layoutY="10.0" prefHeight="35.0" prefWidth="607.0" style="-fx-background-color: transparent; fx-background-insets: 0;" HBox.hgrow="ALWAYS">
+                           <font>
+                              <Font name="Segoe UI Bold" size="18.0" />
+                           </font>
+                        </TextField>
+                        <Button fx:id="newList_btn" mnemonicParsing="false" onAction="#createList" prefHeight="42.0" prefWidth="136.0" text="+ New List" HBox.hgrow="ALWAYS">
+                           <font>
+                              <Font name="Segoe UI Bold" size="14.0" />
+                           </font>
+                        </Button>
+                     </children>
+                  </HBox>
+                  <TableView fx:id="list_table" prefHeight="517.0" prefWidth="1105.0" VBox.vgrow="ALWAYS">
+                     <columns>
+                        <TableColumn fx:id="col_num" prefWidth="48.53332495689392" text="#" />
+                        <TableColumn fx:id="col_lists" prefWidth="245.86669540405273" text="List" />
+                        <TableColumn fx:id="col_numWords" prefWidth="149.86660766601562" text="Num of Words" />
+                        <TableColumn fx:id="col_remove" prefWidth="111.73342895507812" text="Remove" />
+                     </columns>
+                  </TableView>
+               </children>
+            </VBox>
+         </children>
+      </AnchorPane>
+   </center>
+</BorderPane>

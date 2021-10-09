@@ -1,0 +1,10 @@
+.tab {
+
+	-fx-font-size: 18;
+	-fx-pref-height: 37;
+
+}
+
+.tab-header-background {
+	-fx-background-color: transparent
+}

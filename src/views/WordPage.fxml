@@ -1,0 +1,537 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Hyperlink?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.control.Tab?>
+<?import javafx.scene.control.TabPane?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<BorderPane fx:id="main_pane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="634.0" prefWidth="1100.0" xmlns="http://javafx.com/javafx/15.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="views.WordPageController">
+   <top>
+      <AnchorPane prefHeight="71.0" prefWidth="1100.0" style="-fx-background-color: #000080;" BorderPane.alignment="CENTER">
+         <children>
+            <HBox alignment="CENTER_LEFT" prefHeight="71.0" prefWidth="1100.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+               <children>
+                  <ImageView fx:id="logo" fitHeight="79.0" fitWidth="168.0" onMouseClicked="#goHome" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../images/sd.png" />
+                     </image>
+                     <HBox.margin>
+                        <Insets right="8.0" />
+                     </HBox.margin>
+                  </ImageView>
+                  <TextField fx:id="search_txt" onKeyPressed="#searchByKeyboard" prefHeight="48.0" prefWidth="790.0" HBox.hgrow="ALWAYS">
+                     <font>
+                        <Font size="18.0" />
+                     </font></TextField>
+                  <Button fx:id="search_btn" mnemonicParsing="false" onAction="#wordSearch" prefHeight="47.0" prefWidth="114.0" text="Search" HBox.hgrow="ALWAYS">
+                     <font>
+                        <Font size="20.0" />
+                     </font>
+                  </Button>
+               </children>
+               <padding>
+                  <Insets left="10.0" right="10.0" />
+               </padding>
+            </HBox>
+         </children>
+      </AnchorPane>
+   </top>
+   <center>
+      <AnchorPane prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER">
+         <children>
+            <VBox prefHeight="515.2" prefWidth="1100.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+               <children>
+                  <HBox alignment="CENTER_LEFT" prefHeight="65.0" prefWidth="1100.0" style="-fx-background-color: #FF851B; -fx-border-color: black; -fx-border-image-width: 0.4;">
+                     <children>
+                        <Button fx:id="back_btn" mnemonicParsing="false" onAction="#back_method" prefHeight="38.0" prefWidth="58.0" style="-fx-background-color: #FF851B;" textFill="WHITE">
+                           <font>
+                              <Font name="System Bold" size="15.0" />
+                           </font>
+                           <graphic>
+                              <ImageView fitHeight="31.0" fitWidth="28.0" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@../images/img_529.png" />
+                                 </image>
+                              </ImageView>
+                           </graphic>
+                        </Button>
+                        <TextField fx:id="word_title" alignment="CENTER" editable="false" prefHeight="44.0" prefWidth="202.0" style="-fx-background-color: transparent; fx-background-insets: 0;" HBox.hgrow="ALWAYS">
+                           <font>
+                              <Font name="Segoe UI Bold" size="23.0" />
+                           </font>
+                        </TextField>
+                        <ImageView fx:id="listen" fitHeight="39.0" fitWidth="43.0" onMouseClicked="#listenMethod" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../images/listen1.png" />
+                           </image>
+                        </ImageView>
+                        <TextField fx:id="word_trans" alignment="TOP_RIGHT" editable="false" layoutX="68.0" layoutY="10.0" prefHeight="35.0" prefWidth="607.0" style="-fx-background-color: transparent; fx-background-insets: 0;" text="ترجمة" HBox.hgrow="ALWAYS">
+                           <font>
+                              <Font name="Segoe UI Bold" size="18.0" />
+                           </font>
+                        </TextField>
+                        <Button fx:id="add_btn" mnemonicParsing="false" onAction="#addToMylist" prefHeight="75.0" prefWidth="124.0" style="-fx-background-color: #4169E1; -fx-border-color: black; -fx-border-width: 0.5;" text="Add" textFill="WHITE" HBox.hgrow="ALWAYS">
+                           <font>
+                              <Font name="Segoe UI Bold" size="14.0" />
+                           </font>
+                        </Button>
+                     </children>
+                  </HBox>
+                  <TabPane fx:id="tab_pane" prefHeight="523.0" prefWidth="1100.0" style="-fx-background-image: url(&quot;images/background.jpg&quot;);;" tabClosingPolicy="UNAVAILABLE" VBox.vgrow="ALWAYS">
+                    <tabs>
+                      <Tab fx:id="main_tab" style="-fx-font-size: 15; -fx-pref-height: 37;" text="Definitions">
+                           <content>
+                              <ScrollPane fx:id="def_scroll" fitToHeight="true" fitToWidth="true" prefHeight="200.0" prefWidth="200.0">
+                                 <content>
+                                    <VBox fx:id="def_vbox" prefHeight="200.0" prefWidth="100.0">
+                                       <children>
+                                          <HBox prefHeight="49.0" prefWidth="1100.0" style="-fx-background-color: #f2f2f4;" VBox.vgrow="NEVER">
+                                             <children>
+                                                <TextField editable="false" prefHeight="48.0" prefWidth="488.0" style="-fx-background-color: transparent; -fx-background-insets: 0;" text="Defentions:" HBox.hgrow="ALWAYS">
+                                                   <font>
+                                                      <Font name="Verdana Bold" size="21.0" />
+                                                   </font>
+                                                </TextField>
+                                             </children>
+                                          </HBox>
+                                       </children>
+                                       <padding>
+                                          <Insets left="22.0" />
+                                       </padding>
+                                    </VBox>
+                                 </content>
+                              </ScrollPane>
+                           </content>
+                      </Tab>
+                      <Tab fx:id="examples_tab" style="-fx-font-size: 15; -fx-pref-height: 37;" text="Examples">
+                           <content>
+                              <ScrollPane fitToHeight="true" fitToWidth="true" prefHeight="200.0" prefWidth="200.0">
+                                 <content>
+                                    <VBox fx:id="exmp_vbox" prefHeight="200.0" prefWidth="100.0">
+                                       <children>
+                                          <HBox alignment="CENTER_LEFT" prefHeight="49.0" prefWidth="200.0" style="-fx-background-color: #f2f2f4;">
+                                             <children>
+                                                <TextField editable="false" prefHeight="48.0" prefWidth="1089.0" style="-fx-background-color: transparent; -fx-background-insets: 0;" text="Examples:" HBox.hgrow="ALWAYS">
+                                                   <font>
+                                                      <Font name="Verdana Bold" size="21.0" />
+                                                   </font>
+                                                </TextField>
+                                             </children>
+                                          </HBox>
+                                       </children>
+                                       <padding>
+                                          <Insets left="22.0" />
+                                       </padding>
+                                    </VBox>
+                                 </content></ScrollPane>
+                           </content></Tab>
+                        <Tab fx:id="examples_tab1" style="-fx-font-size: 15; -fx-pref-height: 37;" text="Dictionary Examples">
+                           <content>
+                              <ScrollPane fitToHeight="true" fitToWidth="true" prefHeight="200.0" prefWidth="200.0">
+                                 <content>
+                                    <VBox fx:id="dic_exmp_vbox" prefHeight="200.0" prefWidth="100.0">
+                                       <children>
+                                          <HBox alignment="CENTER_LEFT" prefHeight="49.0" prefWidth="200.0" style="-fx-background-color: #f2f2f4;">
+                                             <children>
+                                                <TextField editable="false" prefHeight="48.0" prefWidth="1089.0" style="-fx-background-color: transparent; -fx-background-insets: 0;" text="Dictionary Examples" HBox.hgrow="ALWAYS">
+                                                   <font>
+                                                      <Font name="Verdana Bold" size="21.0" />
+                                                   </font>
+                                                </TextField>
+                                             </children>
+                                          </HBox>
+                                       </children>
+                                       <padding>
+                                          <Insets left="22.0" />
+                                       </padding>
+                                    </VBox>
+                                 </content>
+                              </ScrollPane>
+                           </content>
+                        </Tab>
+                        <Tab fx:id="my_examples_tab" style="-fx-pref-height: 37; -fx-font-size: 15;" text="My Examples">
+                           <content>
+                              <ScrollPane fitToHeight="true" fitToWidth="true" prefHeight="200.0" prefWidth="200.0">
+                                 <content>
+                                    <VBox fx:id="myexmp_vbox" prefHeight="200.0" prefWidth="100.0">
+                                       <children>
+                                          <HBox alignment="CENTER_LEFT" prefHeight="49.0" prefWidth="200.0" style="-fx-background-color: #f2f2f4;">
+                                             <children>
+                                                <TextField editable="false" prefHeight="48.0" prefWidth="1089.0" style="-fx-background-color: transparent; -fx-background-insets: 0;" text="My Examples:" HBox.hgrow="ALWAYS">
+                                                   <font>
+                                                      <Font name="Verdana Bold" size="21.0" />
+                                                   </font>
+                                                   <HBox.margin>
+                                                      <Insets />
+                                                   </HBox.margin>
+                                                </TextField>
+                                             </children>
+                                          </HBox>
+                                          <HBox alignment="CENTER_LEFT" layoutX="10.0" layoutY="10.0" prefHeight="49.0" prefWidth="200.0" spacing="10.0" style="-fx-background-color: #f2f2f4;">
+                                             <children>
+                                                <TextField fx:id="myexm_txt" onKeyPressed="#enterPressed" prefHeight="42.0" prefWidth="578.0">
+                                                   <font>
+                                                      <Font name="Verdana" size="17.0" />
+                                                   </font>
+                                                   <HBox.margin>
+                                                      <Insets />
+                                                   </HBox.margin>
+                                                </TextField>
+                                                <Button fx:id="myexm_add_btn" mnemonicParsing="false" onAction="#addMyExample" prefHeight="42.0" prefWidth="97.0" text="+ Add">
+                                                   <font>
+                                                      <Font name="System Bold" size="18.0" />
+                                                   </font>
+                                                </Button>
+                                             </children>
+                                             <VBox.margin>
+                                                <Insets left="22.0" />
+                                             </VBox.margin>
+                                          </HBox>
+                                       </children>
+                                       <padding>
+                                          <Insets left="22.0" />
+                                       </padding>
+                                    </VBox>
+                                 </content></ScrollPane>
+                           </content></Tab>
+                        <Tab fx:id="translations_tab" style="-fx-font-size: 15; -fx-pref-height: 37;" text="Translation">
+                           <content>
+                              <ScrollPane fitToHeight="true" fitToWidth="true" prefHeight="200.0" prefWidth="200.0">
+                                 <content>
+                                    <VBox prefHeight="200.0" prefWidth="100.0">
+                                       <children>
+                                          <HBox prefHeight="100.0" prefWidth="200.0" VBox.vgrow="ALWAYS">
+                                             <children>
+                                                <VBox fx:id="trans_vbox" layoutX="10.0" layoutY="10.0" nodeOrientation="LEFT_TO_RIGHT" prefHeight="480.0" prefWidth="726.0" HBox.hgrow="ALWAYS">
+                                                   <children>
+                                                      <TextField alignment="TOP_LEFT" editable="false" prefHeight="48.0" prefWidth="1089.0" style="-fx-background-color: transparent; -fx-background-insets: 0;" text="Translations:">
+                                                         <font>
+                                                            <Font name="Verdana Bold" size="21.0" />
+                                                         </font>
+                                                         <VBox.margin>
+                                                            <Insets left="4.0" />
+                                                         </VBox.margin>
+                                                      </TextField>
+                                                   </children>
+                                                   <HBox.margin>
+                                                      <Insets left="22.0" />
+                                                   </HBox.margin>
+                                                </VBox>
+                                                <VBox fx:id="mytrans_vbox" nodeOrientation="RIGHT_TO_LEFT" prefHeight="442.0" prefWidth="595.0">
+                                                   <children>
+                                                      <HBox alignment="CENTER_LEFT" prefHeight="49.0" prefWidth="200.0" style="-fx-background-color: #f2f2f4;">
+                                                         <children>
+                                                            <TextField alignment="TOP_CENTER" editable="false" prefHeight="48.0" prefWidth="1089.0" style="-fx-background-color: transparent; -fx-background-insets: 0;" text="My Translations" HBox.hgrow="ALWAYS">
+                                                               <font>
+                                                                  <Font name="Verdana Bold" size="21.0" />
+                                                               </font>
+                                                               <HBox.margin>
+                                                                  <Insets left="17.0" />
+                                                               </HBox.margin>
+                                                            </TextField>
+                                                         </children>
+                                                      </HBox>
+                                                      <HBox alignment="CENTER_LEFT" prefHeight="46.0" prefWidth="519.0" style="-fx-background-color: #f2f2f4;">
+                                                         <children>
+                                                            <Button fx:id="mytran_add_btn" mnemonicParsing="false" onAction="#addMyTranslation" prefHeight="40.0" prefWidth="76.0" text="+ Add">
+                                                               <font>
+                                                                  <Font size="15.0" />
+                                                               </font>
+                                                            </Button>
+                                                            <TextField fx:id="mytrans_txt" alignment="CENTER_RIGHT" onKeyPressed="#enterPressed" prefHeight="40.0" prefWidth="325.0" promptText="Add translation">
+                                                               <font>
+                                                                  <Font name="Verdana" size="17.0" />
+                                                               </font>
+                                                               <HBox.margin>
+                                                                  <Insets left="11.0" />
+                                                               </HBox.margin>
+                                                            </TextField>
+                                                         </children>
+                                                         <VBox.margin>
+                                                            <Insets left="16.0" />
+                                                         </VBox.margin>
+                                                      </HBox>
+                                                   </children>
+                                                   <HBox.margin>
+                                                      <Insets right="18.0" />
+                                                   </HBox.margin>
+                                                </VBox>
+                                             </children>
+                                             <VBox.margin>
+                                                <Insets top="10.0" />
+                                             </VBox.margin>
+                                          </HBox>
+                                       </children>
+                                    </VBox>
+                                 </content></ScrollPane>
+                           </content></Tab>
+                        <Tab fx:id="trans_examples_tab" style="-fx-pref-height: 37; -fx-font-size: 15;" text="Translated Examples">
+                           <content>
+                              <ScrollPane fitToHeight="true" fitToWidth="true" prefHeight="200.0" prefWidth="200.0">
+                                 <content>
+                                    <VBox fx:id="trans_ex_vbox" prefHeight="200.0" prefWidth="100.0">
+                                       <children>
+                                          <HBox alignment="CENTER_LEFT" prefHeight="49.0" prefWidth="200.0" style="-fx-background-color: #f2f2f4;">
+                                             <children>
+                                                <TextField editable="false" prefHeight="48.0" prefWidth="1089.0" style="-fx-background-color: transparent; -fx-background-insets: 0;" text="Translated Examples:" HBox.hgrow="ALWAYS">
+                                                   <font>
+                                                      <Font name="Verdana Bold" size="21.0" />
+                                                   </font>
+                                                </TextField>
+                                             </children>
+                                          </HBox>
+                                       </children>
+                                       <padding>
+                                          <Insets left="22.0" />
+                                       </padding>
+                                    </VBox>
+                                 </content>
+                              </ScrollPane>
+                           </content>
+                        </Tab>
+                        <Tab fx:id="syn_tab" style="-fx-font-size: 15; -fx-pref-height: 37;" text="Synonyms">
+                           <content>
+                              <ScrollPane fitToHeight="true" fitToWidth="true" prefHeight="200.0" prefWidth="200.0">
+                                 <content>
+                                    <VBox fx:id="sysn_vbox" prefHeight="200.0" prefWidth="100.0">
+                                       <children>
+                                          <HBox alignment="CENTER_LEFT" prefHeight="49.0" prefWidth="200.0" style="-fx-background-color: #f2f2f4;">
+                                             <children>
+                                                <TextField editable="false" prefHeight="48.0" prefWidth="1089.0" style="-fx-background-color: transparent; -fx-background-insets: 0;" text="Synonyms:" HBox.hgrow="ALWAYS">
+                                                   <font>
+                                                      <Font name="Verdana Bold" size="21.0" />
+                                                   </font>
+                                                </TextField>
+                                             </children>
+                                          </HBox>
+                                       </children>
+                                       <padding>
+                                          <Insets left="22.0" />
+                                       </padding>
+                                    </VBox>
+                                 </content></ScrollPane>
+                           </content></Tab>
+                        <Tab fx:id="forms_tab" style="-fx-pref-height: 37; -fx-font-size: 15;" text="Forms">
+                           <content>
+                              <ScrollPane fitToHeight="true" fitToWidth="true" prefHeight="200.0" prefWidth="200.0">
+                                 <content>
+                                    <VBox fx:id="forms_vbox" prefHeight="200.0" prefWidth="100.0">
+                                       <children>
+                                          <HBox alignment="CENTER_LEFT" prefHeight="49.0" prefWidth="200.0" style="-fx-background-color: #f2f2f4;">
+                                             <children>
+                                                <TextField editable="false" prefHeight="48.0" prefWidth="1089.0" style="-fx-background-color: transparent; -fx-background-insets: 0;" text="Forms:" HBox.hgrow="ALWAYS">
+                                                   <font>
+                                                      <Font name="Verdana Bold" size="21.0" />
+                                                   </font>
+                                                </TextField>
+                                             </children>
+                                          </HBox>
+                                       </children>
+                                       <padding>
+                                          <Insets left="22.0" />
+                                       </padding>
+                                    </VBox>
+                                 </content></ScrollPane>
+                           </content></Tab>
+                        <Tab fx:id="writing_tab" style="-fx-font-size: 15; -fx-pref-height: 37;" text="Writing">
+                           <content>
+                              <ScrollPane fitToHeight="true" fitToWidth="true" prefHeight="200.0" prefWidth="200.0">
+                                 <content>
+                                    <VBox fx:id="writing_vbox" prefHeight="200.0" prefWidth="100.0">
+                                       <children>
+                                          <HBox alignment="CENTER_LEFT" prefHeight="49.0" prefWidth="200.0" style="-fx-background-color: #f2f2f4;">
+                                             <children>
+                                                <TextField editable="false" prefHeight="48.0" prefWidth="1089.0" style="-fx-background-color: transparent; -fx-background-insets: 0;" text="Writing Practice:" HBox.hgrow="ALWAYS">
+                                                   <font>
+                                                      <Font name="Verdana Bold" size="21.0" />
+                                                   </font>
+                                                   <HBox.margin>
+                                                      <Insets />
+                                                   </HBox.margin>
+                                                </TextField>
+                                             </children>
+                                          </HBox>
+                                          <HBox alignment="CENTER_LEFT" layoutX="10.0" layoutY="10.0" prefHeight="49.0" prefWidth="200.0" style="-fx-background-color: #f2f2f4;">
+                                             <children>
+                                                <TextField editable="false" prefHeight="48.0" prefWidth="1089.0" style="-fx-background-color: transparent; -fx-background-insets: 0;" text="Listen to the word and write it down:" HBox.hgrow="ALWAYS">
+                                                   <font>
+                                                      <Font name="Verdana" size="19.0" />
+                                                   </font>
+                                                   <HBox.margin>
+                                                      <Insets />
+                                                   </HBox.margin>
+                                                </TextField>
+                                             </children>
+                                          </HBox>
+                                          <HBox alignment="CENTER_LEFT" layoutX="10.0" layoutY="10.0" prefHeight="49.0" prefWidth="200.0" spacing="10.0" style="-fx-background-color: #f2f2f4;">
+                                             <children>
+                                                <TextField fx:id="writing_txt" onKeyPressed="#enterPressed" prefHeight="42.0" prefWidth="377.0">
+                                                   <font>
+                                                      <Font name="Verdana" size="17.0" />
+                                                   </font>
+                                                   <HBox.margin>
+                                                      <Insets />
+                                                   </HBox.margin>
+                                                </TextField>
+                                                <Button fx:id="writing_btn" mnemonicParsing="false" onAction="#checkWriting" prefHeight="42.0" prefWidth="97.0" text="Check!">
+                                                   <font>
+                                                      <Font name="System Bold" size="18.0" />
+                                                   </font>
+                                                </Button>
+                                                <Label fx:id="writing_label" alignment="CENTER" prefHeight="33.0" prefWidth="103.0" text="incorrect!" textFill="RED" visible="false">
+                                                   <font>
+                                                      <Font name="Arial Bold" size="18.0" />
+                                                   </font>
+                                                </Label>
+                                             </children>
+                                             <VBox.margin>
+                                                <Insets left="22.0" />
+                                             </VBox.margin>
+                                          </HBox>
+                                       </children>
+                                       <padding>
+                                          <Insets left="22.0" />
+                                       </padding>
+                                    </VBox>
+                                 </content>
+                              </ScrollPane>
+                           </content></Tab>
+                        <Tab fx:id="dic_tab" style="-fx-pref-height: 37; -fx-font-size: 15;" text="Dictionary">
+                           <content>
+                              <ScrollPane fitToHeight="true" fitToWidth="true" prefHeight="200.0" prefWidth="200.0">
+                                 <content>
+                                    <VBox prefHeight="200.0" prefWidth="100.0">
+                                       <children>
+                                          <HBox alignment="CENTER_LEFT" prefHeight="49.0" prefWidth="200.0" style="-fx-background-color: #f2f2f4;">
+                                             <children>
+                                                <TextField editable="false" prefHeight="48.0" prefWidth="1089.0" style="-fx-background-color: transparent; -fx-background-insets: 0;" text="Dictionary" HBox.hgrow="ALWAYS">
+                                                   <font>
+                                                      <Font name="Verdana Bold" size="21.0" />
+                                                   </font>
+                                                   <HBox.margin>
+                                                      <Insets />
+                                                   </HBox.margin>
+                                                </TextField>
+                                             </children>
+                                          </HBox>
+                                          <HBox alignment="CENTER_LEFT" layoutX="10.0" layoutY="10.0" prefHeight="49.0" prefWidth="200.0" style="-fx-background-color: #f2f2f4;">
+                                             <children>
+                                                <Label alignment="CENTER" contentDisplay="CENTER" prefHeight="50.0" prefWidth="45.0" text="•" textAlignment="CENTER">
+                                                   <font>
+                                                      <Font name="System Bold" size="32.0" />
+                                                   </font>
+                                                </Label>
+                                                <Hyperlink fx:id="oxford_hyp" onAction="#openLink" prefHeight="111.0" prefWidth="280.0" text="Oxford">
+                                                   <font>
+                                                      <Font name="System Bold" size="26.0" />
+                                                   </font>
+                                                </Hyperlink>
+                                             </children>
+                                             <VBox.margin>
+                                                <Insets left="33.0" />
+                                             </VBox.margin>
+                                          </HBox>
+                                          <HBox alignment="CENTER_LEFT" layoutX="56.0" layoutY="60.0" prefHeight="49.0" prefWidth="200.0" style="-fx-background-color: #f2f2f4;">
+                                             <children>
+                                                <Label alignment="CENTER" contentDisplay="CENTER" prefHeight="50.0" prefWidth="45.0" text="•" textAlignment="CENTER">
+                                                   <font>
+                                                      <Font name="System Bold" size="32.0" />
+                                                   </font>
+                                                </Label>
+                                                <Hyperlink fx:id="camp_hyp" onAction="#openLink" prefHeight="111.0" prefWidth="280.0" text="Cambridge">
+                                                   <font>
+                                                      <Font name="System Bold" size="26.0" />
+                                                   </font>
+                                                </Hyperlink>
+                                             </children>
+                                             <VBox.margin>
+                                                <Insets left="33.0" />
+                                             </VBox.margin>
+                                          </HBox>
+                                          <HBox alignment="CENTER_LEFT" layoutX="56.0" layoutY="110.0" prefHeight="49.0" prefWidth="200.0" style="-fx-background-color: #f2f2f4;">
+                                             <children>
+                                                <Label alignment="CENTER" contentDisplay="CENTER" prefHeight="50.0" prefWidth="45.0" text="•" textAlignment="CENTER">
+                                                   <font>
+                                                      <Font name="System Bold" size="32.0" />
+                                                   </font>
+                                                </Label>
+                                                <Hyperlink fx:id="camp_hyp_ar" onAction="#openLink" prefHeight="111.0" prefWidth="280.0" text="Cambridge Arabic">
+                                                   <font>
+                                                      <Font name="System Bold" size="26.0" />
+                                                   </font>
+                                                </Hyperlink>
+                                             </children>
+                                             <VBox.margin>
+                                                <Insets left="33.0" />
+                                             </VBox.margin>
+                                          </HBox>
+                                       </children>
+                                       <padding>
+                                          <Insets left="22.0" />
+                                       </padding>
+                                    </VBox>
+                                 </content>
+                              </ScrollPane>
+                           </content></Tab>
+                        <Tab fx:id="video_tab" style="-fx-font-size: 15; -fx-pref-height: 37;" text="Video">
+                           <content>
+                              <ScrollPane fitToHeight="true" fitToWidth="true" prefHeight="200.0" prefWidth="200.0">
+                                 <content>
+                                    <VBox prefHeight="200.0" prefWidth="100.0">
+                                       <children>
+                                          <HBox alignment="CENTER_LEFT" prefHeight="49.0" prefWidth="200.0" style="-fx-background-color: #f2f2f4;">
+                                             <children>
+                                                <TextField editable="false" prefHeight="48.0" prefWidth="1089.0" style="-fx-background-color: transparent; -fx-background-insets: 0;" text="Video:" HBox.hgrow="ALWAYS">
+                                                   <font>
+                                                      <Font name="Verdana Bold" size="21.0" />
+                                                   </font>
+                                                   <HBox.margin>
+                                                      <Insets />
+                                                   </HBox.margin>
+                                                </TextField>
+                                             </children>
+                                          </HBox>
+                                          <HBox alignment="CENTER_LEFT" prefHeight="49.0" prefWidth="200.0" style="-fx-background-color: #f2f2f4;">
+                                             <children>
+                                                <Label alignment="CENTER" contentDisplay="CENTER" prefHeight="50.0" prefWidth="45.0" text="•" textAlignment="CENTER">
+                                                   <font>
+                                                      <Font name="System Bold" size="32.0" />
+                                                   </font>
+                                                </Label>
+                                                <Hyperlink fx:id="video_hyp" onAction="#openLink" prefHeight="111.0" prefWidth="280.0" text="Youglish">
+                                                   <font>
+                                                      <Font name="System Bold" size="26.0" />
+                                                   </font>
+                                                </Hyperlink>
+                                             </children>
+                                             <VBox.margin>
+                                                <Insets left="33.0" />
+                                             </VBox.margin>
+                                          </HBox>
+                                       </children>
+                                       <padding>
+                                          <Insets left="22.0" />
+                                       </padding>
+                                    </VBox>
+                                 </content>
+                              </ScrollPane>
+                           </content></Tab>
+                    </tabs>
+                  </TabPane>
+               </children>
+            </VBox>
+         </children>
+      </AnchorPane>
+   </center>
+</BorderPane>
