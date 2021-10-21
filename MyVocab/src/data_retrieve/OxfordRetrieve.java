@@ -28,8 +28,8 @@ public class OxfordRetrieve {
 				+ "/" + target_lang_translate + "/" + word_id;
 
 		// TODO: replace with your own app id and app key
-		final String app_id = "e70bfafc";
-		final String app_key = "2eeeab9fe1b5a6e679e5553865fc985e";
+		final String app_id = ""; // CHANGE IT
+		final String app_key = ""; // CHANGE IT
 
 		StringBuilder stringBuilder = new StringBuilder();
 
