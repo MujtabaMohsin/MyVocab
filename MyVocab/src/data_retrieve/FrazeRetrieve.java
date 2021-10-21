@@ -22,7 +22,7 @@ import org.w3c.dom.Node;
 
 public class FrazeRetrieve {
 
-	final static String key = "c3252735-66bd-4573-82e0-528f8348284a";
+	final static String key = ""; // CHANGE IT
 
 	static ArrayList<HashMap<String, Object>> all_definitions = new ArrayList<HashMap<String, Object>>();
 	static HashMap<String, Object> hash_def = new HashMap<String, Object>();
